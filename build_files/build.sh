@@ -9,31 +9,36 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-# this installs a package from fedora repos
-dnf5 install -y \
-  neovim \
-  mpdris2
-  adw-gtk3-theme
-  plasma-firewall-firewalld
-  erofs-utils
 
 dnf5 remove -y \
+  default-editor \
   nano \
   nano-default-editor \
   vim-minimal \
-  default-editor \
   vim-enhanced \
-
-# Replace nvim with vim
-ln -s /usr/bin/nvim /usr/bin/vim
-ln -s /usr/bin/nvim /usr/bin/vi
+  vim-data \
+  ptyxis
 
 # Use a COPR Example:
 #
 dnf5 -y copr enable ublue-os/packages
-dnf5 -y install bluefin-backgrounds
+
+# this installs a package from fedora repos
+dnf5 install -y \
+  adw-gtk3-theme \
+  bluefin-backgrounds \
+  erofs-utils \
+  mpdris2 \
+  neovim \
+  plasma-firewall-firewalld
+
+
 # Disable COPRs so they don't end up enabled on the final image:
 dnf5 -y copr disable ublue-os/packages
+
+# Replace nvim with vim
+ln -s /usr/bin/nvim /usr/bin/vim
+ln -s /usr/bin/nvim /usr/bin/vi
 
 #### Example for enabling a System Unit File
 

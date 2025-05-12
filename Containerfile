@@ -3,7 +3,7 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/aurora-dx:latest
+FROM ghcr.io/ublue-os/aurora-dx:latest@sha256:0375a283b9d6fbfc2da00520835321fadf4e95f3ff42e495e19af088e11144d3
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest

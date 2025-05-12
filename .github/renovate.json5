@@ -17,6 +17,7 @@
       "matchDepTypes": ["container"],
       "matchFileNames": [".github/workflows/**.yaml", ".github/workflows/**.yml"],
     },
+    {
       {
       "automerge": true,
       "matchUpdateTypes": ["digest"],

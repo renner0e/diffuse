@@ -30,7 +30,6 @@ dnf5 install -y \
   erofs-utils \
   mpdris2 \
   neovim \
-  plasma-firewall-firewalld
 
 
 # Disable COPRs so they don't end up enabled on the final image:

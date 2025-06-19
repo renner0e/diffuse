@@ -10,6 +10,8 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 
+rm -f /usr/share/icons/hicolor/index.theme
+
 dnf5 remove -y \
   default-editor \
   nano \
@@ -30,6 +32,7 @@ dnf5 install -y \
   erofs-utils \
   mpdris2 \
   neovim \
+  hicolor-icon-theme
 
 
 # Disable COPRs so they don't end up enabled on the final image:

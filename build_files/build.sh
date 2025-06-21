@@ -32,8 +32,7 @@ dnf5 install -y \
   erofs-utils \
   mpdris2 \
   neovim \
-  hicolor-icon-theme
-
+  bazaar
 
 # Disable COPRs so they don't end up enabled on the final image:
 dnf5 -y copr disable ublue-os/packages

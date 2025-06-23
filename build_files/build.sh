@@ -19,9 +19,7 @@ dnf5 remove -y \
   vim-minimal \
   vim-enhanced \
   vim-data \
-  ptyxis \
-  fedora-flathub-remote \
-  fedora-third-party \
+  ptyxis
 
 # Use a COPR Example:
 #

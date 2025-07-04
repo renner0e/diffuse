@@ -31,6 +31,7 @@ dnf5 install -y \
   adw-gtk3-theme \
   bluefin-backgrounds \
   bazaar \
+  krunner-bazaar\
   erofs-utils \
   mpdris2 \
   neovim \

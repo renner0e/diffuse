@@ -38,16 +38,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-      # who the fuck knows if this works
-      - name: wait for /mnt to get mounted
-        run: |
-          df -h
-          sleep 5
-          df -h
-
         # This is optional, but if you see that your builds are way too big for the runners, you can enable this by uncommenting the following lines:
       - name: Maximize build space
-        uses: ublue-os/container-storage-action@8e3f8f5368cfce1595269830378c3d7ad0b1673b
+        uses: renner0e/container-storage-action@cf9945ec3fac8844442b6d7ec6d32a61af214106
         with:
           target-dir: /var/lib/containers
           mount-opts: compress-force=zstd:2

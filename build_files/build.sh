@@ -42,6 +42,13 @@ dnf5 install -y \
   mpdris2 \
   neovim \
 
+# sudo-rs
+# install sudo-rs
+dnf5 -y install sudo-rs
+ln -sf /usr/bin/su-rs /usr/bin/su
+ln -sf /usr/bin/sudo-rs /usr/bin/sudo
+ln -sf /usr/bin/visudo-rs /usr/bin/visudo
+
 # Disable COPRs so they don't end up enabled on the final image:
 dnf5 -y copr disable ublue-os/packages
 dnf5 -y copr disable ublue-os/staging

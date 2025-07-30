@@ -38,6 +38,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
+      # who the fuck knows if this works
+      - name: Get current hard drives
+        run: |
+          df -h
+
         # This is optional, but if you see that your builds are way too big for the runners, you can enable this by uncommenting the following lines:
       - name: Maximize build space
         uses: ublue-os/container-storage-action@main

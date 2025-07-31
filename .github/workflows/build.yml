@@ -45,7 +45,8 @@ jobs:
 
         # This is optional, but if you see that your builds are way too big for the runners, you can enable this by uncommenting the following lines:
       - name: Maximize build space
-        uses: renner0e/container-storage-action@968ef6da170fbc7c34c1a534ee522b1787b58ff5
+        uses: renner0e/container-storage-action@d592b1065c27492d5f0348d3034baa4466300a4e
+        continue-on-error: true
         with:
           target-dir: /var/lib/containers
           mount-opts: compress-force=zstd:2

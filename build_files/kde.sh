@@ -103,6 +103,8 @@ dnf5 -y upgrade \
   ksystemstats \
   kwayland \
   kwin \
+  kwin-common \
+  kwin-libs \
   kwrited \
   layer-shell-qt \
   libkscreen \

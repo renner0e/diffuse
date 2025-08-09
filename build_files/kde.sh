@@ -148,5 +148,7 @@ dnf5 -y upgrade \
   spectacle \
   xdg-desktop-portal-kde
 
+dnf5 -y remove plasma-discover-kns
+
 dnf5 -y copr disable solopasha/plasma-unstable
 

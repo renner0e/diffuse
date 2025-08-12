@@ -45,7 +45,7 @@ jobs:
 
         # This is optional, but if you see that your builds are way too big for the runners, you can enable this by uncommenting the following lines:
       - name: Maximize build space
-        uses: ublue-os/container-storage-action@fb03d44358403015d2a12cc59c5fb658d957adc2
+        uses: ublue-os/container-storage-action@911baca08baf30c8654933e9e9723cb399892140
         continue-on-error: true
         with:
           target-dir: /var/lib/containers

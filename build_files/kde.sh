@@ -48,3 +48,6 @@ fi
 
 
 dnf5 -y remove plasma-discover-kns
+
+dnf -y copr disable solopasha/plasma-unstable
+dnf -y copr disable solopasha/kde-gear-unstable

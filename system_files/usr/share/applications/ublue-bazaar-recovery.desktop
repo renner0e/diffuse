@@ -1,0 +1,9 @@
+[Desktop Entry]
+Comment=Install Bazaar if it's not present
+Name=Bazaar Recovery
+Exec=/usr/libexec/ublue-bazaar-recovery
+Icon=system-help
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=Recovery;Bazaar;

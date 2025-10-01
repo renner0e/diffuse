@@ -2,18 +2,7 @@
 
 set -ouex pipefail
 
-### Install packages
-
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
-
-set -ouex pipefail
-
-# List available kernels with:
-# skopeo inspect docker://ghcr.io/ublue-os/akmods:coreos-stable-42 | grep coreos-stable-42-6.14
-
+rsync -rvK /ctx/system_files/ /
 
 
 dnf5 reinstall libXcursor -y
@@ -27,8 +16,16 @@ dnf5 remove -y \
   vim-data \
   ptyxis
 
-# Use a COPR Example:
-#
+# Bazaar flatpak migration test
+# I also want flatpak master to play around with preinstall
+
+dnf5 -y remove bazaar
+
+dnf5 -y copr enable renner/flatpak-master
+
+dnf5 -y swap flatpak flatpak-0:1.16.1~git20250925
+
+dnf5 -y copr disable renner/flatpak-master
 
 # this installs a package from fedora repos
 dnf5 install -y \

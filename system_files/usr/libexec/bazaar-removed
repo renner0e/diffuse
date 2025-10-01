@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+BAZAAR_APPID="io.github.kolunmi.Bazaar"
+
+if ! flatpak list | grep -F -e "${BAZAAR_APPID}"; then
+  notify-send -u critical -a Bazaar -i "org.gnome.Settings" "Bazaar does not seem to be installed, installing it on the background."
+  flatpak install -y "${BAZAAR_APPID}"
+fi
+
+flatpak run "${BAZAAR_APPID}" "$@"

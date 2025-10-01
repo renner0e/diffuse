@@ -27,7 +27,12 @@ dnf5 -y swap flatpak flatpak-0:1.16.1~git20250925
 
 dnf5 -y copr disable renner/flatpak-master
 
-# this installs a package from fedora repos
+cp -r /usr/share/ublue-os/bazaar /etc
+
+sed -i 's|/usr/share/ublue-os/|/run/host/etc/|g' /etc/bazaar/config.yaml
+
+systemctl --global enable bazaar.service
+
 dnf5 install -y \
   adw-gtk3-theme \
   erofs-utils \

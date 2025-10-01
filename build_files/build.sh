@@ -29,20 +29,13 @@ dnf5 remove -y \
 
 # Use a COPR Example:
 #
-dnf5 -y copr enable ublue-os/packages
-dnf5 -y copr enable ublue-os/staging
 
 # this installs a package from fedora repos
 dnf5 install -y \
   adw-gtk3-theme \
-  bluefin-backgrounds \
   erofs-utils \
   mpdris2 \
   neovim \
-
-# Disable COPRs so they don't end up enabled on the final image:
-dnf5 -y copr disable ublue-os/packages
-dnf5 -y copr disable ublue-os/staging
 
 # Replace nvim with vim
 ln -s /usr/bin/nvim /usr/bin/vim

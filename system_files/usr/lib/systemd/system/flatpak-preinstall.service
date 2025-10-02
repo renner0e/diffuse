@@ -3,6 +3,7 @@ Description=Preinstall Flatpaks
 After=network-online.target
 Wants=network-online.target
 ConditionPathExists=/usr/bin/flatpak
+Documentation=man:flatpak-preinstall(1)
 
 [Service]
 Type=oneshot

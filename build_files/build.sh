@@ -32,6 +32,7 @@ cp -r /usr/share/ublue-os/bazaar /etc
 sed -i 's|/usr/share/ublue-os/|/run/host/etc/|g' /etc/bazaar/config.yaml
 
 systemctl --global enable bazaar.service
+systemctl enable flatpak-preinstall.service
 
 dnf5 install -y \
   adw-gtk3-theme \

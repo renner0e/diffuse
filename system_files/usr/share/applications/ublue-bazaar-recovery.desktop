@@ -1,5 +1,5 @@
 [Desktop Entry]
-Comment="Install Bazaar if it's not present"
+Comment=Install Bazaar if it is not present
 Name=Bazaar Recovery
 Exec=/usr/libexec/ublue-bazaar-recovery
 Icon=tools-wizard-symbolic

@@ -40,6 +40,11 @@ dnf5 install -y \
   mpdris2 \
   neovim \
 
+# nvim packaging fucks me over
+# https://bugzilla.redhat.com/show_bug.cgi?id=2402743
+rm /.nvimlog
+
+
 # Replace nvim with vim
 ln -s /usr/bin/nvim /usr/bin/vim
 ln -s /usr/bin/nvim /usr/bin/vi

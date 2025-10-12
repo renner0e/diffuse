@@ -21,17 +21,22 @@ dnf5 remove -y \
 
 dnf5 -y remove bazaar
 
-dnf5 -y copr enable renner/flatpak-master
-
-dnf5 -y swap flatpak flatpak-0:1.16.1~git20250925
-
-dnf5 -y copr disable renner/flatpak-master
-
 cp -r /usr/share/ublue-os/bazaar /etc
 
 sed -i 's|/usr/share/ublue-os/|/run/host/etc/|g' /etc/bazaar/config.yaml
 
 systemctl --global enable bazaar.service
+
+dnf5 -y copr enable ublue-os/flatpak-test
+
+dnf5 -y --repo=copr:copr.fedorainfracloud.org:ublue-os:flatpak-test swap flatpak flatpak
+dnf5 -y --repo=copr:copr.fedorainfracloud.org:ublue-os:flatpak-test swap flatpak-libs flatpak-libs
+dnf5 -y --repo=copr:copr.fedorainfracloud.org:ublue-os:flatpak-test swap flatpak-session-helper flatpak-session-helper
+
+dnf5 -y copr disable ublue-os/flatpak-test
+
+rpm -qa --qf "%{NAME} %{VENDOR}\n" | grep -i copr
+
 systemctl enable flatpak-preinstall.service
 
 dnf5 install -y \

@@ -40,8 +40,6 @@ rpm -qa --qf "%{NAME} %{VENDOR}\n" | grep -i copr
 systemctl enable flatpak-preinstall.service
 
 dnf5 install -y \
-  adw-gtk3-theme \
-  erofs-utils \
   mpdris2 \
   neovim \
 

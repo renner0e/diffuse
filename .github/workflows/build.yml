@@ -99,7 +99,7 @@ jobs:
         run: |
           sudo podman build -t "localhost/${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}}" -f ./Containerfile .
 
-      - name: rechunk
+      - name: Rechunk Image
         id: rechunker
         run: |
           sudo podman run --rm \

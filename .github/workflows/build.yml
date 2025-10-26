@@ -107,7 +107,7 @@ jobs:
             -v /var/lib/containers:/var/lib/containers \
             "quay.io/fedora/fedora-bootc:rawhide" \
             /usr/libexec/bootc-base-imagectl rechunk \
-                localhost/${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}}
+                localhost/${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}} \
                 localhost/${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}}
 
       # These `if` statements are so that pull requests for your custom images do not make it publish any packages under your name without you knowing

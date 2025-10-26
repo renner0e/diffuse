@@ -96,7 +96,7 @@ jobs:
       - name: Build Image
         id: build_image
         run: |
-          sudo podman build -t "${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}}" -f ./Containerfile .
+          sudo podman build -t localhost/"${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}}" -f ./Containerfile .
 
       - name: rechunk
         id: rechunker

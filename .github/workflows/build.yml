@@ -107,8 +107,8 @@ jobs:
             -v /var/lib/containers:/var/lib/containers \
             "quay.io/fedora/fedora-bootc:rawhide" \
             /usr/libexec/bootc-base-imagectl rechunk \
-                localhost/${target_image}:${tag} \
-                localhost/${target_image}:${tag}
+                localhost/${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}}
+                localhost/${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}}
 
       # These `if` statements are so that pull requests for your custom images do not make it publish any packages under your name without you knowing
       # They also check if the runner is on the default branch so that things like the merge queue (if you enable it), are going to work

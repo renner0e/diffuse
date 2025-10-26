@@ -125,6 +125,20 @@ build $target_image=image_name $tag=default_tag $dx="0" $hwe="0" $gdx="0":
         --tag "${target_image}:${tag}" \
         .
 
+rechunk $target_image=image_name $tag=default_tag:
+  #!/usr/bin/env bash
+  set ${SET_X:+-x} -eou pipefail
+
+  podman run --rm \
+    --privileged \
+    -v /var/lib/containers:/var/lib/containers \
+    "quay.io/fedora/fedora-bootc:rawhide" \
+    /usr/libexec/bootc-base-imagectl rechunk \
+        localhost/${target_image}:${tag} \
+        localhost/${target_image}:${tag}
+
+build-rechunked: build rechunk
+
 # Command: _rootful_load_image
 # Description: This script checks if the current user is root or running under sudo. If not, it attempts to resolve the image tag using podman inspect.
 #              If the image is found, it loads it into rootful podman. If the image is not found, it pulls it from the repository.

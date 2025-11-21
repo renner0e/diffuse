@@ -154,18 +154,21 @@ jobs:
           string: ${{ env.IMAGE_NAME }}
 
       - name: Push To GHCR
-        uses: redhat-actions/push-to-registry@5ed88d269cf581ea9ef6dd6806d01562096bee9c # v2
         #if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
-        id: push
         env:
           REGISTRY_USER: ${{ github.actor }}
           REGISTRY_PASSWORD: ${{ github.token }}
-        with:
-          registry: ${{ steps.registry_case.outputs.lowercase }}
-          image: ${{ steps.image_case.outputs.lowercase }}
-          tags: ${{ steps.metadata.outputs.tags }}
-          username: ${{ env.REGISTRY_USER }}
-          password: ${{ env.REGISTRY_PASSWORD }}
+          REGISTRY: ${{ steps.registry_case.outputs.lowercase }}
+          IMAGE: ${{ steps.image_case.outputs.lowercase }}
+          TAGS: ${{ steps.metadata.outputs.tags }}
+        run: |
+          echo "${REGISTRY_PASSWORD}" | sudo podman login ghcr.io -u "${REGISTRY_USER}" --password-stdin
+      
+          for tag in ${TAGS}; do
+            sudo podman push \
+              localhost/${IMAGE}:${tag} \
+              ${REGISTRY}/${IMAGE}:${tag}
+          done
 
       # This section is optional and only needs to be enabled if you plan on distributing
       # your project for others to consume. You will need to create a public and private key

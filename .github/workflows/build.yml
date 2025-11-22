@@ -106,7 +106,7 @@ jobs:
             --privileged \
             -v /var/lib/containers:/var/lib/containers \
             "quay.io/fedora/fedora-bootc:rawhide" \
-            /usr/libexec/bootc-base-imagectl rechunk --max-layers 128 \
+            /usr/libexec/bootc-base-imagectl rechunk --max-layers 512 \
                 localhost/${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}} \
                 localhost/${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}}
 
